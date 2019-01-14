@@ -1,0 +1,51 @@
+<div class="main-content">
+
+  <form [formGroup]="filtersForm">
+    <input type="text" class="search" formControlName="search">
+
+    <div class="hero-switcher">
+      <div class="hero-switcher__item">
+        <input type="radio" id="all" value="all" formControlName="side">
+        <label for="all">All</label>
+      </div>
+      <div class="hero-switcher__item">
+        <input type="radio" id="dark" value="dark" formControlName="side">
+        <label for="dark">Dark</label>
+      </div>
+      <div class="hero-switcher__item">
+        <input type="radio" id="light" value="light" formControlName="side">
+        <label for="light">Light</label>
+      </div>
+    </div>
+  </form>
+
+  <div class="heroes-list">
+    <div class="hero-item" *ngFor="let hero of heroes">
+      <div class="hero-item__photo"><img src="/mishok.jpg" alt=""></div>
+      <div class="hero-item__title">{{hero.name}}</div>
+      <ul class="hero-description" >
+        <li class="hero-description__item">{{hero.height}}</li>
+        <li class="hero-description__item">{{hero.mass}}</li>
+        <li class="hero-description__item">{{hero.hair_color}}</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="lodaer" *ngIf="heroesLoading.closed == false"></div>
+
+
+  <style>
+    .lodaer{
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 10;
+      background: #999;
+    }
+  </style>
+
+
+
+</div>
