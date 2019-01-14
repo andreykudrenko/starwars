@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {HeroesService} from './heroes.service';
 import {Subscription} from 'rxjs';
 import {FormBuilder, FormGroup} from '@angular/forms';
+import {debounceTime} from 'rxjs/operators';
 
 @Component({
     selector: 'app-main-content',
@@ -10,7 +11,8 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 })
 
 export class MainContentComponent implements OnInit {
-    heroes = [];
+    allHeroes = [];
+    heroesFiltered = [];
     heroesLoading = Subscription.EMPTY;
     filtersForm: FormGroup;
 
@@ -20,13 +22,15 @@ export class MainContentComponent implements OnInit {
 
     ngOnInit() {
         this.filtersForm = this.formBuilder.group({search: 'Luke', side: 'all'});
-        this.filtersForm.valueChanges.subscribe(filtersValue => this.filterHeroes(filtersValue));
-        this.filterHeroes(this.filtersForm.value);
+        this.filtersForm.valueChanges.pipe(debounceTime(500)).subscribe(filtersValue => this.filterHeroes());
+        this.heroesLoading = this.heroesService.getHeroes(this.filtersForm.value).subscribe( heroesList => {
+            this.allHeroes = heroesList;
+            this.filterHeroes();
+        });
     }
 
-    filterHeroes(filtersValue) {
-        this.heroesLoading = this.heroesService.getHeroes(filtersValue)
-            .subscribe((heroesResponse) => this.heroes = this.heroesService.filterHeroes(heroesResponse, filtersValue));
+    filterHeroes() {
+        this.heroesFiltered = this.heroesService.filterHeroes(this.allHeroes, this.filtersForm.value);
     }
 
 }
