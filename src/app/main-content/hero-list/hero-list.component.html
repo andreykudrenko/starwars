@@ -1,13 +1,19 @@
 <div class="heroes-block">
-  <div class="heroes-block__empty" *ngIf="heroesFiltered.length === 0">Sorry Babushka</div>
+  <div class="heroes-empty" *ngIf="heroesFiltered.length === 0">
+    <img src="/assets/imgs/404.png" alt="" class="heroes-empty__icon">
+    <p class="heroes-empty__msg">Sorry, no results. Try another search</p>
+  </div>
   <div class="heroes-list">
     <div class="hero-item" *ngFor="let hero of heroesFiltered">
-      <div class="hero-item__photo" [class]="'hero-item__photo_' + hero.side"><img src="/assets/img/mishok.jpg" alt=""></div>
+      <div [class]="'hero-item__photo hero-item__photo_' + hero.side">
+        <p [class]="'hero-item__photo-title hero-item__photo-title_' + hero.side">{{hero.side}} side</p>
+        <img src="/assets/imgs/stormtrooper-icon.png" alt="">
+      </div>
       <div class="hero-item__title">{{hero.name}}</div>
       <ul class="hero-description" >
-        <li class="hero-description__item">{{hero.height}}</li>
-        <li class="hero-description__item">{{hero.mass}}</li>
-        <li class="hero-description__item">{{hero.hair_color}}</li>
+        <li class="hero-description__item">Height: {{hero.height}}</li>
+        <li class="hero-description__item">Mass: {{hero.mass}}</li>
+        <li class="hero-description__item">Side: {{hero.side}}</li>
       </ul>
     </div>
   </div>

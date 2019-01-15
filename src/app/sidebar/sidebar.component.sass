@@ -1,3 +1,42 @@
-.sidebar__title
-  font-size: 24px
-  font-weight: 600
+$blue: #111622
+
+.sidebar
+  width: 240px
+  position: fixed
+  left: 70px
+  background: #e2e2e2
+  box-shadow: 11px 0px 10px -9px #11162230
+  z-index: 5
+  height: 100%
+  &:before
+    position: absolute
+    content: ''
+    background: #e2e2e2
+    height: 100%
+    width: 100vw
+    left: 0
+    transform: translateX(-100%)
+  .sidebar__title
+    font-size: 24px
+    margin: 0
+    padding-top: 25px
+    text-align: center
+    display: flex
+    align-items: center
+  .sidebar__icon
+    width: 25px
+    margin-right: 10px
+
+.sidebar-list
+  margin: 0
+  padding: 0
+  padding-top: 60px
+  .sidebar-list__item
+    padding-bottom: 5px
+    a
+      color: #000
+      text-decoration: none
+      &:hover
+        //text-decoration: underline
+
+

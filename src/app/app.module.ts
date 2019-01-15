@@ -26,7 +26,7 @@ import { HeroListComponent } from './main-content/hero-list/hero-list.component'
       HttpClientModule,
       MatSidenavModule,
       BrowserAnimationsModule,
-      ReactiveFormsModule
+      ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

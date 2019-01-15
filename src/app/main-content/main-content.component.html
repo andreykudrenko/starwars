@@ -4,20 +4,8 @@
 
   <app-hero-list [heroesFiltered]="heroesFiltered"></app-hero-list>
 
-  <div class="lodaer" *ngIf="heroesLoading.closed == false"></div>
-
-  <style>
-    .lodaer{
-      position: fixed;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      z-index: 10;
-      background: #999;
-    }
-  </style>
-
-
+  <div class="loader" *ngIf="heroesLoading.closed == false" [@enterAnimation]>
+      <img src="/assets/imgs/loader.gif" alt="">
+  </div>
 
 </div>

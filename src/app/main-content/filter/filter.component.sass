@@ -1,0 +1,75 @@
+$blue: #111622
+
+.search
+  border: 1px solid $blue
+  padding: 8px 12px
+  outline: none
+  display: block
+  width: 240px
+  font-size: 14px
+  transition: box-shadow .5s
+  font-weight: 600
+  color: $blue
+  &::placeholder
+    font-weight: 300
+    color: $blue
+    font-size: 10px
+    text-transform: uppercase
+  &:focus
+    box-shadow: 0px 3px 9px -2px rgba(17,22,35,.5)
+
+.hero-switcher
+  padding: 20px 0
+  display: flex
+  align-items: flex-start
+  justify-content: flex-start
+  .hero-switcher__item
+    margin-left: 25px
+    &:first-child
+      margin-left: 0
+
+[type="radio"]:checked,
+[type="radio"]:not(:checked)
+  position: absolute
+  left: -9999px
+
+[type="radio"]:checked + label,
+[type="radio"]:not(:checked) + label
+  position: relative
+  padding-left: 25px
+  cursor: pointer
+  line-height: 20px
+  display: inline-block
+  color: $blue
+
+[type="radio"]:checked + label:before,
+[type="radio"]:not(:checked) + label:before
+  content: ''
+  position: absolute
+  left: 0
+  top: 0
+  width: 18px
+  height: 18px
+  border: 1px solid #ddd
+  border-radius: 100%
+  background: #fff
+
+[type="radio"]:checked + label:after,
+[type="radio"]:not(:checked) + label:after
+  content: ''
+  width: 12px
+  height: 12px
+  background: $blue
+  position: absolute
+  top: 4px
+  left: 4px
+  border-radius: 100%
+  transition: all 0.2s ease
+
+[type="radio"]:not(:checked) + label:after
+  opacity: 0
+  transform: scale(0)
+
+[type="radio"]:checked + label:after
+  opacity: 1
+  transform: scale(1)

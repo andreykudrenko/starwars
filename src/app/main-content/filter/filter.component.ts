@@ -6,7 +6,7 @@ import {Filters} from '../filters.model';
 @Component({
   selector: 'app-filter',
   templateUrl: './filter.component.html',
-  styleUrls: ['./filter.component.css']
+  styleUrls: ['./filter.component.sass']
 })
 export class FilterComponent implements OnInit {
   @Output() formValue = new EventEmitter<Filters>();
