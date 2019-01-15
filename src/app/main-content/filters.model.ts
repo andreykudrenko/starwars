@@ -1,4 +1,4 @@
-export interface Filters {
+export class Filters {
     search: string;
-    side: string;
+    side: 'light' | 'dark' | 'all';
 }

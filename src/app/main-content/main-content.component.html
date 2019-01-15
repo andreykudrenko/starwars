@@ -1,41 +1,10 @@
 <div class="main-content">
 
-  <form [formGroup]="filtersForm">
-    <input type="text" class="search" formControlName="search">
+  <app-filter (formValue)="filterHeroes($event)" ></app-filter>
 
-    <div class="hero-switcher">
-      <div class="hero-switcher__item">
-        <input type="radio" id="all" value="all" formControlName="side">
-        <label for="all">All</label>
-      </div>
-      <div class="hero-switcher__item">
-        <input type="radio" id="dark" value="dark" formControlName="side">
-        <label for="dark">Dark</label>
-      </div>
-      <div class="hero-switcher__item">
-        <input type="radio" id="light" value="light" formControlName="side">
-        <label for="light">Light</label>
-      </div>
-    </div>
-  </form>
-
-  <div class="heroes-block">
-    <div class="heroes-block__empty" *ngIf="heroesFiltered.length === 0">Sorry Babushka</div>
-    <div class="heroes-list">
-      <div class="hero-item" *ngFor="let hero of heroesFiltered">
-        <div class="hero-item__photo"><img src="/mishok.jpg" alt=""></div>
-        <div class="hero-item__title">{{hero.name}}</div>
-        <ul class="hero-description" >
-          <li class="hero-description__item">{{hero.height}}</li>
-          <li class="hero-description__item">{{hero.mass}}</li>
-          <li class="hero-description__item">{{hero.hair_color}}</li>
-        </ul>
-      </div>
-    </div>
-  </div>
+  <app-hero-list [heroesFiltered]="heroesFiltered"></app-hero-list>
 
   <div class="lodaer" *ngIf="heroesLoading.closed == false"></div>
-
 
   <style>
     .lodaer{

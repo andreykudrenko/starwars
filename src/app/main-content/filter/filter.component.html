@@ -1,0 +1,18 @@
+<form [formGroup]="filtersForm">
+  <input type="text" class="search" formControlName="search">
+
+  <div class="hero-switcher">
+    <div class="hero-switcher__item">
+      <input type="radio" id="all" value="all" formControlName="side">
+      <label for="all">All</label>
+    </div>
+    <div class="hero-switcher__item">
+      <input type="radio" id="dark" value="dark" formControlName="side">
+      <label for="dark">Dark</label>
+    </div>
+    <div class="hero-switcher__item">
+      <input type="radio" id="light" value="light" formControlName="side">
+      <label for="light">Light</label>
+    </div>
+  </div>
+</form>

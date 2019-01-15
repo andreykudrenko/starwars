@@ -3,7 +3,7 @@ export class Hero {
     height: string;
     mass: string;
     hair_color: string;
-    side: string;
+    side: 'light' | 'dark';
     skin_color: string;
     eye_color: string;
     birth_year: string;

@@ -9,6 +9,8 @@ import { HeaderComponent } from './header/header.component';
 import { MainContentComponent } from './main-content/main-content.component';
 import {HttpClientModule} from '@angular/common/http';
 import {ReactiveFormsModule} from '@angular/forms';
+import { FilterComponent } from './main-content/filter/filter.component';
+import { HeroListComponent } from './main-content/hero-list/hero-list.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,8 @@ import {ReactiveFormsModule} from '@angular/forms';
       SidebarComponent,
       HeaderComponent,
       MainContentComponent,
+      FilterComponent,
+      HeroListComponent,
   ],
   imports: [
       BrowserModule,
