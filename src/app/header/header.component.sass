@@ -25,12 +25,22 @@ $blue: #111622
   &:before
     left: 0
     transform: translateX(-100%)
-  .header__title
+  &__title
     font-size: 32px
     color: #fff
     margin: 0
     margin-left: 270px
-  .header__title_light
+  &__title_light
     font-weight: 300
     text-transform: uppercase
     font-size: 22px
+
+@media (max-width: 1200px)
+  .header
+    &__title
+      margin-left: 340px
+
+@media (max-width: 990px)
+  .header
+    &__title
+      margin-left: 280px
